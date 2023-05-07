@@ -251,27 +251,6 @@ This online Competitive Programming Essentials course is a very thorough
                     </div>
                 </div>
 
-                <script>
-                    function toggleText(divid) {
-                        const cs = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", "c12"];
-
-                        for (let i = 0; i < cs.length; i++) {
-                            var textt = document.getElementById(cs[i]);
-                            textt.style.display = "none";
-                        }
-
-                        var text = document.getElementById(divid);
-                        if (text.style.display === "none") {
-                          text.style.display = "block";
-                        } else {
-                          text.style.display = "none";
-                        }
-                      }
-                </script>
-
-
-
-
                 <div class="col-lg-4 right-contents">
                     <div class="sidebar_top">
                         <ul>
@@ -301,7 +280,9 @@ This online Competitive Programming Essentials course is a very thorough
                             </li>
 
                         </ul>
-                        <a href="#" class="btn_1 d-block">Enroll the course</a>
+                        <button class="btn_1 d-block" id = "openRegistrationForm">
+                            Enroll In this the course
+                        </button>
                     </div>
 
                     <h4 class="title">Reviews</h4>
@@ -514,6 +495,30 @@ This online Competitive Programming Essentials course is a very thorough
     <script src="js/waypoints.min.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+
+    <script>
+        function toggleText(divid) {
+            const cs = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", "c12"];
+
+            for (let i = 0; i < cs.length; i++) {
+                var textt = document.getElementById(cs[i]);
+                textt.style.display = "none";
+            }
+
+            var text = document.getElementById(divid);
+            if (text.style.display === "none") {
+              text.style.display = "block";
+            } else {
+              text.style.display = "none";
+            }
+          }
+
+          document.getElementById("openRegistrationForm").onclick = function() {
+            let params = `width=700,height=700, left = 200, top=200`;
+            window.open("./form1.html", 'window name', params);
+            return false;
+          }
+    </script>
 </body>
 
 </html>

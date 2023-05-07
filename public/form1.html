@@ -25,37 +25,38 @@
 
     <div class="title">REGISTER to book a free demo class !!</div>
     <div class="content">
-      <form action="#">
+      <form action="#" id ="registrationForm">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" placeholder="Enter your name" name = "fullName" required>
           </div>
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
+            <input type="text" placeholder="Enter your username" name = "userName" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="email" placeholder="Enter your email" name = "email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <input type="tel" placeholder="12345-67890" name = "phoneNumber" required
+            pattern="[0-9]{5}-[0-9]{5}">
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
+            <input type="password" placeholder="Enter your password" name = "password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" required>
+            <input type="password" placeholder="Confirm your password" name = "confirmPassword" required>
           </div>
         </div>
         <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
+          <input type="radio" name="gender" id="dot-1" value="Male">
+          <input type="radio" name="gender" id="dot-2" value = "Female">
+          <input type="radio" name="gender" id="dot-3" value = "Others">
           <span class="gender-title">Gender</span>
           <div class="category">
             <label for="dot-1">
@@ -78,6 +79,20 @@
       </form>
     </div>
   </div>
+
+  <script type="module">
+     import {writeData} from "./firestore.js";
+
+     function getFormData(form) {
+          writeData(form)
+      }
+
+      document.getElementById("registrationForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          getFormData(e.target);
+      });
+
+  </script>
 
 </body>
 </html>
