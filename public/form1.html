@@ -41,16 +41,18 @@
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="tel" placeholder="12345-67890" name = "phoneNumber" required
-            pattern="[0-9]{5}-[0-9]{5}">
+            <input type="tel" placeholder="Enter 10 digit phone number" name = "phoneNumber" required
+            pattern="[2-35-9]{1}[0-9]{9}">
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" placeholder="Enter your password" name = "password" required>
+            <input type="password" placeholder="Enter your password" name = "password" 
+                id = "password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" placeholder="Confirm your password" name = "confirmPassword" required>
+            <input type="password" placeholder="Confirm your password" name = "confirmPassword" 
+                id = "confirmPassword" required>
           </div>
         </div>
         <div class="gender-details">
@@ -83,8 +85,21 @@
   <script type="module">
      import {writeData} from "./firestore.js";
 
-     function getFormData(form) {
-          writeData(form)
+     var passwordCheck = function() {
+          if (document.getElementById('password').value ==
+                document.getElementById('confirmPassword').value) {
+              return true;
+          } else {
+            return false;
+          }
+      }
+
+      function getFormData(form) {
+          if (passwordCheck()) {
+            writeData(form);
+          } else {
+            alert('Passwords are not matching!');
+          }
       }
 
       document.getElementById("registrationForm").addEventListener("submit", function (e) {
