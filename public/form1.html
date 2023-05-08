@@ -32,10 +32,6 @@
             <input type="text" placeholder="Enter your name" name = "fullName" required>
           </div>
           <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" name = "userName" required>
-          </div>
-          <div class="input-box">
             <span class="details">Email</span>
             <input type="email" placeholder="Enter your email" name = "email" required>
           </div>
@@ -43,36 +39,6 @@
             <span class="details">Phone Number</span>
             <input type="tel" placeholder="Enter 10 digit phone number" name = "phoneNumber" required
             pattern="[2-35-9]{1}[0-9]{9}">
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="password" placeholder="Enter your password" name = "password" 
-                id = "password" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="password" placeholder="Confirm your password" name = "confirmPassword" 
-                id = "confirmPassword" required>
-          </div>
-        </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1" value="Male">
-          <input type="radio" name="gender" id="dot-2" value = "Female">
-          <input type="radio" name="gender" id="dot-3" value = "Others">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
           </div>
         </div>
         <div class="button">
@@ -85,21 +51,8 @@
   <script type="module">
      import {writeData} from "./firestore.js";
 
-     var passwordCheck = function() {
-          if (document.getElementById('password').value ==
-                document.getElementById('confirmPassword').value) {
-              return true;
-          } else {
-            return false;
-          }
-      }
-
       function getFormData(form) {
-          if (passwordCheck()) {
             writeData(form);
-          } else {
-            alert('Passwords are not matching!');
-          }
       }
 
       document.getElementById("registrationForm").addEventListener("submit", function (e) {
