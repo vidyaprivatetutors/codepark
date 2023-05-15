@@ -20,31 +20,31 @@
     <div class="title">Register for Kon Banega Coder(KBC) Quiz by NCC</div>
     <div class="content" style="margin-top: 8px;">Just attempt the test and stand a chance to win FREE personalized courses.</div>
     <div class="content">
-      <form action="#">
+      <form action="#" id ="kbcForm">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" placeholder="Enter your name" name = "fullName" required>
           </div>
           <div class="input-box">
             <span class="details">College</span>
-            <input type="text" placeholder="Enter your college name" required>
+            <input type="text" placeholder="Enter your college name" name = "collegeName" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="email" placeholder="Enter your email" name = "email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <input type="text" placeholder="Enter your 10 digit number" name = "phoneNumber" pattern="[2-35-9]{1}[0-9]{9}" required>
           </div>
           <div class="input-box">
             <span class="details">Stream and Year of passout</span>
-            <input type="text" placeholder="Enter your educational details" required>
+            <input type="text" placeholder="Enter your educational details" name = "streamAndPassOutYear" required>
           </div>
           <div class="input-box">
             <span class="details">LinkedIn profile</span>
-            <input type="text" placeholder="Enter your linkedIn profile url" required>
+            <input type="url" placeholder="Enter your linkedIn profile url" name = "linkedinURL" required>
           </div>
         </div>
         <!-- <div class="gender-details">
@@ -74,5 +74,18 @@
     </div>
   </div>
 
+  <script type="module">
+    import {writeData} from "./firestore.js";
+
+     function getFormData(form) {
+           writeData(form);
+     }
+
+     document.getElementById("kbcForm").addEventListener("submit", function (e) {
+         e.preventDefault();
+         getFormData(e.target);
+     });
+
+ </script>
 </body>
 </html>
