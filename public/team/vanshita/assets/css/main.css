@@ -5125,3 +5125,6 @@ a img {
     margin: 0;
     color: #fff
 }
+.footer a:hover{
+    color :#fff
+}
