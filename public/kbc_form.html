@@ -20,7 +20,7 @@
     <div class="title">Register for Kon Banega Coder(KBC) Quiz by NCC</div>
     <div class="content" style="margin-top: 8px;">Just attempt the test and stand a chance to win FREE personalized courses.</div>
     <div class="content">
-      <form action="#" id ="kbcForm">
+      <form id ="kbcForm">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
@@ -74,17 +74,30 @@
     </div>
   </div>
 
-  <script type="module">
-    import {writeData} from "./firestore.js";
+  <script type= "text/JavaScript">
+    //import {writeData} from "./fireStore.js";
 
-     function getFormData(form) {
+    /* function getFormData(form) {
            writeData(form);
      }
 
      document.getElementById("kbcForm").addEventListener("submit", function (e) {
          e.preventDefault();
          getFormData(e.target);
-     });
+     });*/
+    const form = document.getElementById('kbcForm');
+    form.addEventListener("submit", function(e) {
+       e.preventDefault();
+       const data = new FormData(form);
+       const action = e.target.action;
+       fetch("https://script.google.com/macros/s/AKfycby9WB4Hy9Tny-xzbq2LdBybBm1-l--g2dpkdZ5U1HPkOhO3ns7eNqNPgoPcanv4sYwY/exec", {
+          method: 'POST',
+          body: data,
+       })
+      .then(() => {
+          alert("Congratulations! You have successfully registered for KBC");
+      })
+  });
 
  </script>
 </body>

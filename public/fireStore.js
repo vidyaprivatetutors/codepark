@@ -32,7 +32,9 @@ export async function writeData(form) {
             userData: object
         });
         console.log("Document written with ID: ", docRef.id);
+        alert('You have successfully registered for this event!')
       } catch (e) {
+        alert('Something went wrong! Please try again!')
         console.error("Error adding document: ", e);
       }
 
