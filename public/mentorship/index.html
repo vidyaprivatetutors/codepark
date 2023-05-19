@@ -55,14 +55,15 @@
                         <h1 class="hero-title h2-mobile mt-0 is-revealing">Apply for FREE mentorship</h1>
                         <h3 class="hero-title h4-mobile mt-0 is-revealing">Limited Time Offer !!</h3>
                         <p class="hero-paragraph is-revealing">For all tech learners out there, National coding club presents you an opportunity to connect with industry leaders over a 15 minutes mentorship session for FREE !!</p>
-                        <div class="hero-form newsletter-form field field-grouped is-revealing">
+                          <form id = "mentorshipForm" class="hero-form newsletter-form field field-grouped is-revealing">
                             <div class="control control-expanded">
-                                <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;">
+                                    <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;" required>
                             </div>
                             <div class="control">
-                                <a class="button button-primary button-block button-shadow" href="#">Get mentorship</a>
+                                <input class="button button-primary button-block button-shadow" type="submit">Get mentorship</a>
                             </div>
-                        </div>
+                        </form>
+                        
                         <div class="hero-browser">
                             <div class="bubble-3 is-revealing">
                                 <svg width="427" height="286" viewBox="0 0 427 286" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -255,15 +256,15 @@
                             <h2 class="section-title mt-0">It's your time to Shine !</h2>
                             <p class="section-paragraph">National Coding Club is fosued to help the indian students be at top on the world stage of top coders.</p>
                         </div>
-                        <div class="footer-form newsletter-form field field-grouped is-revealing">
-                            <div class="control control-expanded">
-                                <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;">
-                            </div>
-                            <div class="control">
-                                <a class="button button-primary button-block button-shadow" href="#">Get mentorship</a>
-                            </div>
+                            <form id = "mentorshipForm" class="footer-form newsletter-form field field-grouped is-revealing">
+                                <div class="control control-expanded">
+                                        <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;" required>
+                                </div>
+                                <div class="control">
+                                    <input class="button button-primary button-block button-shadow" type="submit">Get mentorship</a>
+                                </div>
+                            </form>
                         </div>
-                    </div>
                 </div>
             </section>
         </main>
@@ -340,6 +341,22 @@
         </footer>
     </div>
 
-    <script src="dist/js/main.min.js"></script>
+    <script type="text/JavaScript">
+        const form = document.getElementById('mentorshipForm');
+    form.addEventListener("submit", function(e) {
+       e.preventDefault();
+       const data = new FormData(form);
+       const action = e.target.action;
+       fetch("https://script.google.com/macros/s/AKfycbyj0S3kdlwShvzNgduptSdlO_Yr_o7oT7lmLYDGkt4q8VJR6MzTBR9afRa67J1rNZDbAw/exec", {
+          method: 'POST',
+          body: data,
+       })
+      .then(() => {
+          alert("We've got your email for this program");
+      })
+  });
+    </script>
+<script src="dist/js/main.min.js">
+</script>
 </body>
 </html>
