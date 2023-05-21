@@ -62,8 +62,12 @@
                             session for FREE !!</p>
                         <form id="mentorshipForm" class="hero-form newsletter-form field field-grouped is-revealing">
                             <div class="control control-expanded">
-                                <input class="input" type="email" name="email"
-                                    placeholder="Enter your email address&hellip;" required>
+                                <input class="input input-min-width" type="email" name="email"
+                                    placeholder="Enter your email address" required>
+                            </div>
+                            <div class="control control-expanded">
+                                <input class="input input-min-width" type="text" name="phoneNumber" pattern="[2-35-9]{1}[0-9]{9}"
+                                 placeholder="Enter 10 digit phone number" required>
                             </div>
                             <div class="control">
                                 <input class="button button-primary button-block button-shadow" type="submit"
@@ -318,8 +322,12 @@
                         </div>
                         <form id="mentorshipForm2" class="footer-form newsletter-form field field-grouped is-revealing">
                             <div class="control control-expanded">
-                                <input class="input" type="email" name="email"
+                                <input class="input input-min-width" type="email" name="email"
                                     placeholder="Enter your email address&hellip;" required>
+                            </div>
+                            <div class="control control-expanded">
+                                <input class="input input-min-width" type="text" name="phoneNumber" pattern="[2-35-9]{1}[0-9]{9}"
+                                 placeholder="Enter 10 digit phone number" required>
                             </div>
                             <div class="control">
                                 <input class="button button-primary button-block button-shadow" type="submit"
@@ -419,39 +427,44 @@
         mentorSubmit2.disabled = false
     form.addEventListener("submit", function(e) {
         e.preventDefault();
+        disableButton();
        const data = new FormData(form);
        const action = e.target.action;
-       fetch("https://script.google.com/macros/s/AKfycbyj0S3kdlwShvzNgduptSdlO_Yr_o7oT7lmLYDGkt4q8VJR6MzTBR9afRa67J1rNZDbAw/exec", {
+       fetch("https://script.google.com/macros/s/AKfycbwrYfRCdJtHawk-SxzVhBUkWWF58XKYGbV0pF8ltq96Kz9f9vR9CpQ7AMkDBO38oA3grw/exec", {
           method: 'POST',
           body: data,
        })
       .then(() => {
-          disableButton()
+        showAlert();
       })
     });
 
     form2.addEventListener("submit", function(e) {
        e.preventDefault();
+       disableButton();
        const data = new FormData(form);
        const action = e.target.action;
-       fetch("https://script.google.com/macros/s/AKfycbyj0S3kdlwShvzNgduptSdlO_Yr_o7oT7lmLYDGkt4q8VJR6MzTBR9afRa67J1rNZDbAw/exec", {
+       fetch("https://script.google.com/macros/s/AKfycbwrYfRCdJtHawk-SxzVhBUkWWF58XKYGbV0pF8ltq96Kz9f9vR9CpQ7AMkDBO38oA3grw/exec", {
           method: 'POST',
           body: data,
        })
       .then(() => {
-        disableButton()
+        showAlert();
       })
     });
 
-     function disableButton() {
+    function disableButton() {
+        mentorSubmit.disabled = true;
+        mentorSubmit2.disabled = true;
+        mentorSubmit.style.background = 'grey';
+        mentorSubmit.style.cursor = 'default';
+        mentorSubmit2.style.background = 'grey';
+        mentorSubmit2.style.cursor = 'default';
+    }
+
+     function showAlert() {
         console.log("form submit");
-          mentorSubmit.disabled = true;
-          mentorSubmit2.disabled = true;
-          mentorSubmit.style.background = 'grey'
-          mentorSubmit.style.cursor = 'default'
-          mentorSubmit2.style.background = 'grey'
-          mentorSubmit2.style.cursor = 'default'
-          alert("We've got your email for this program");
+        alert("We've got your details for this program");
     }
     </script>
     <script src="dist/js/main.min.js">
