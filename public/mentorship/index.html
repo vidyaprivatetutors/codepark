@@ -60,7 +60,7 @@
                                     <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;" required>
                             </div>
                             <div class="control">
-                                <input class="button button-primary button-block button-shadow" type="submit"></a>
+                                <input class="button button-primary button-block button-shadow" type="submit" id="mentorsubmit"></a>
                             </div>
                         </form>
                         
@@ -261,7 +261,7 @@
                                         <input class="input" type="email" name="email" placeholder="Enter your email address&hellip;" required>
                                 </div>
                                 <div class="control">
-                                    <input class="button button-primary button-block button-shadow" type="submit"></a>
+                                    <input class="button button-primary button-block button-shadow" type="submit" id="mentorsubmit"></a>
                                 </div>
                             </form>
                         </div>
@@ -343,6 +343,8 @@
 
     <script type="text/JavaScript">
         const form = document.getElementById('mentorshipForm');
+        const mentorSubmit = document.getElementById('mentorsubmit');
+        mentorSubmit.disabled = false
     form.addEventListener("submit", function(e) {
        e.preventDefault();
        const data = new FormData(form);
@@ -352,6 +354,10 @@
           body: data,
        })
       .then(() => {
+          console.log("form submit");
+          mentorSubmit.disabled = true;
+          mentorSubmit.style.background = 'grey'
+          mentorSubmit.style.cursor = 'default'
           alert("We've got your email for this program");
       })
   });
