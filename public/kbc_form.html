@@ -97,7 +97,10 @@
          getFormData(e.target);
      });*/
     const form = document.getElementById('kbcForm');
+    const kbcSubmit = document.getElementById('kbcSubmit');
+    kbcSubmit.disabled = false
     form.addEventListener("submit", function(e) {
+        
        e.preventDefault();
        const data = new FormData(form);
        const action = e.target.action;
@@ -106,6 +109,10 @@
           body: data,
        })
       .then(() => {
+          console.log("form submit");
+          kbcSubmit.disabled = true;
+          kbcSubmit.style.background = 'grey'
+          kbcSubmit.style.cursor = 'default'
           alert("Congratulations! You have successfully registered for KBC");
       })
   });
