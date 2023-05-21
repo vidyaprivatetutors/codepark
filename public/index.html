@@ -605,24 +605,35 @@
                         <h4>Newsletter</h4>
                         <p>Keep yourself updated in the tech world through our free weekly newsletter.
                         </p>
-                        <form action="#">
+                        <form id = "newsletterSubscriberForm">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Enter email address'
+                                    <input type="text" class="form-control" placeholder='Enter email address' name='email'
                                         onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Enter email address'">
-                                    <div class="input-group-append">
-                                        <button class="btn btn_1" type="button" onclick="myFunction()"><i class="ti-angle-right"></i></button>
-                                    </div>
+                                        onblur="this.placeholder = 'Enter email address'" required>
+                                </div>
+                                <div>
+                                    <button class="btn btn_1" type="submit" style="min-width: fit-content;">Subscribe<i class="ti-angle-right"></i></button>
                                 </div>
                             </div>
 
                         </form>
 
                         <script>
-                            function myFunction() {
-                              alert("You've been successfully subscribed to the weekly tech newsletter.");
-                            }
+                                const form = document.getElementById('newsletterSubscriberForm');
+                                form.addEventListener("submit", function(e) {
+                                            e.preventDefault();
+                                            const data = new FormData(form);
+                                            const action = e.target.action;
+                                            fetch("https://script.google.com/macros/s/AKfycbxfa1yjD9BqiAyFd8HnRGxiE9va7XYpZEwyspK2kJS7NzsLErfp92jxgD44ZYHWB1dR/exec", {
+                                            method: 'POST',
+                                            body: data,
+                                })
+                                .then(() => {
+                                          alert("You've successfully subscribed to the weekly tech newsletter.");
+                                })
+                                });
+
                             </script>
 
                             <script type="module">
