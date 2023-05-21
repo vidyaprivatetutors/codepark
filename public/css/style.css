@@ -49,6 +49,10 @@ input:hover, input:focus {
   padding: 40px 0px;
 }
 
+.d-none-quote {
+  display: block;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 18, E:/172 Etrain Education/172_Etrain_Education_html/sass/_common.scss */
   .section_padding {
@@ -7598,6 +7602,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   .gap{
     padding-top: 5em;
+  }
+  
+  .d-none-quote{
+    display: none;
   }
 }
 
