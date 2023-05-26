@@ -111,10 +111,15 @@
       .then(() => {
           console.log("form submit");
           kbcSubmit.disabled = true;
+          setTimeout(enable(), 60000);
           kbcSubmit.style.background = 'grey'
           kbcSubmit.style.cursor = 'default'
-          alert("Congratulations! You have successfully registered for KBC");
+          confirm("are you ready?");
+          //alert("Congratulations! You have successfully registered for KBC");
       })
+      function enable() {
+            //console.log("im working8");
+            kbcSubmit.disabled = false;}
   });
 
 </script>
