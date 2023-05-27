@@ -19,15 +19,15 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-  <div class="container">
+  <div class="container open" id="main">
     <!-- Just an image -->
-<!-- <nav class="navbar navbar-dark bg-light"> -->
-  <!-- <a class="navbar-brand" href="#"> -->
+    <!-- <nav class="navbar navbar-dark bg-light"> -->
+    <!-- <a class="navbar-brand" href="#"> -->
     <a href="https://www.nationalcodingclub.com/" target="_blank">
       <img src="img/logo.png" width="250" height="70" style="padding-bottom: 19px" alt="">
     </a>
     <!-- </a> -->
-  <!-- </nav> -->
+   <!-- </nav> -->
     <div class="title">Register for Kon Banega Coder(KBC) Quiz by NCC</div>
     <div class="content" style="margin-top: 8px;">Just attempt the test and stand a chance to win FREE personalized courses.</div>
     <div class="content">
@@ -84,6 +84,13 @@
       </form>
     </div>
   </div>
+  <div class="dailogbox" id="dailogBox">
+    <img src="img/congrats.webp" alt="hurray!" class="congrats_img
+  ">
+    <h2>Congratulations! </h2>
+    <h3>You have successfully registered for KBC</h3>
+    <button > PROCEED</button>
+  </div>
 
 <script type= "text/JavaScript">
     //import {writeData} from "./fireStore.js";
@@ -114,12 +121,25 @@
           setTimeout(enable(), 60000);
           kbcSubmit.style.background = 'grey'
           kbcSubmit.style.cursor = 'default'
+          openDailogBox();
           confirm("are you ready?");
           //alert("Congratulations! You have successfully registered for KBC");
       })
       function enable() {
             //console.log("im working8");
             kbcSubmit.disabled = false;}
+      function openDailogBox(){
+        let dailogBox= document.getElementById('dailogBox');
+        let main= document.getElementById("main");
+        main.classList.remove("open"); 
+        dailogBox.classList.add("open");
+      }      
+      // function closeDailogBox() {
+      //   let dailogBox= document.getElementById('dailogBox');
+      //   let main= document.getElementById("main");
+      //   dailogBox.classList.remove("open");
+      //   main.classList.add("open");
+      // }
   });
 
 </script>
