@@ -84,12 +84,12 @@
       </form>
     </div>
   </div>
+  <!-- Dialogbox code begins -->
   <div class="dailogbox" id="dailogBox">
-    <img src="img/congrats.webp" alt="hurray!" class="congrats_img
-  ">
-    <h2>Congratulations! </h2>
+    <img src="img/congrats.webp" alt="hurray!" class="congrats_img">
+    <p class="congrats">Congratulations!</p> 
     <h3>You have successfully registered for KBC</h3>
-    <button > PROCEED</button>
+    <a href="index.html" class="button">Go To Home</a>
   </div>
 
 <script type= "text/JavaScript">
@@ -117,29 +117,28 @@
        })
       .then(() => {
           console.log("form submit");
-          kbcSubmit.disabled = true;
+          disable();
+          // kbcSubmit.disabled = true;
           setTimeout(enable(), 60000);
-          kbcSubmit.style.background = 'grey'
-          kbcSubmit.style.cursor = 'default'
+          // kbcSubmit.style.background = 'grey'
+          // kbcSubmit.style.cursor = 'default'
           openDailogBox();
-          confirm("are you ready?");
-          //alert("Congratulations! You have successfully registered for KBC");
       })
+      function disable() {
+        kbcSubmit.disabled = true;
+        kbcSubmit.classList.add("disable");
+      }
       function enable() {
-            //console.log("im working8");
-            kbcSubmit.disabled = false;}
+            kbcSubmit.disabled = false;
+            kbcSubmit.classList.remove("disable");
+          }
       function openDailogBox(){
         let dailogBox= document.getElementById('dailogBox');
         let main= document.getElementById("main");
         main.classList.remove("open"); 
         dailogBox.classList.add("open");
-      }      
-      // function closeDailogBox() {
-      //   let dailogBox= document.getElementById('dailogBox');
-      //   let main= document.getElementById("main");
-      //   dailogBox.classList.remove("open");
-      //   main.classList.add("open");
-      // }
+      }   
+
   });
 
 </script>

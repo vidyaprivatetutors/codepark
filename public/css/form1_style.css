@@ -145,9 +145,14 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
+/* for disabling submit btn */
+.disable{
+  background-color: grey;
+  cursor: default;
+}
+/* css for dialog box */
 .dailogbox{
   width: 35vw;
-  /* height: 25vh; */
   /* margin: auto; */
   display: flex;
   justify-content: center;
@@ -159,33 +164,53 @@ form .user-details .input-box{
   display: none;
 }
 .congrats_img{
-  width: 80px; 
+  width: 10vw; 
   margin-bottom: 16px;
 }
-.dailogbox h2{
-  font-size: 38px;
+.dailogbox .congrats{
+  word-wrap: break-word; 
+  font-size: 36px;
   font-weight: 500;
   margin: 0 32px;
 }
 .dailogbox h3{
+  word-wrap: break-word;
   font-size: 22px;
   font-weight: 500;
+  margin-bottom: 32px;
 }
-.dailogbox button{
+.dailogbox .button{
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
   border-radius: 5px;
   border: none;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 16px;
   padding: 8px;
 }
-.dailogbox button:hover{
+.dailogbox .button:hover{
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
+/* For showing dialog box */
 .open{
   display: inline-block;
+}
+@media (max-width :850px){
+  .dailogbox{
+    width: 80vw;
+  }
+  .congrats_img{
+    margin-bottom: 5px;
+  }
+  .congrats{
+    font-size: 2vh;
+    margin: 0 8px;
+  }
+  .dailogbox h3{
+    font-size: 2vh;
+  }
 }
