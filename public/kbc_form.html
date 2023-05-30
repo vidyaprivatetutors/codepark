@@ -19,15 +19,15 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-  <div class="container">
+  <div class="container open" id="main">
     <!-- Just an image -->
-<!-- <nav class="navbar navbar-dark bg-light"> -->
-  <!-- <a class="navbar-brand" href="#"> -->
+    <!-- <nav class="navbar navbar-dark bg-light"> -->
+    <!-- <a class="navbar-brand" href="#"> -->
     <a href="https://www.nationalcodingclub.com/" target="_blank">
       <img src="img/logo.png" width="250" height="70" style="padding-bottom: 19px" alt="">
     </a>
     <!-- </a> -->
-  <!-- </nav> -->
+   <!-- </nav> -->
     <div class="title">Register for Kon Banega Coder(KBC) Quiz by NCC</div>
     <div class="content" style="margin-top: 8px;">Just attempt the test and stand a chance to win FREE personalized courses.</div>
     <div class="content">
@@ -84,6 +84,13 @@
       </form>
     </div>
   </div>
+  <!-- Dialogbox code begins -->
+  <div class="dailogbox" id="dailogBox">
+    <img src="img/congrats.webp" alt="hurray!" class="congrats_img">
+    <p class="congrats">Congratulations!</p> 
+    <h3>You have successfully registered for KBC</h3>
+    <a href="index.html" class="button">Go To Home</a>
+  </div>
 
 <script type= "text/JavaScript">
     //import {writeData} from "./fireStore.js";
@@ -110,11 +117,28 @@
        })
       .then(() => {
           console.log("form submit");
-          kbcSubmit.disabled = true;
-          kbcSubmit.style.background = 'grey'
-          kbcSubmit.style.cursor = 'default'
-          alert("Congratulations! You have successfully registered for KBC");
+          disable();
+          // kbcSubmit.disabled = true;
+          setTimeout(enable(), 60000);
+          // kbcSubmit.style.background = 'grey'
+          // kbcSubmit.style.cursor = 'default'
+          openDailogBox();
       })
+      function disable() {
+        kbcSubmit.disabled = true;
+        kbcSubmit.classList.add("disable");
+      }
+      function enable() {
+            kbcSubmit.disabled = false;
+            kbcSubmit.classList.remove("disable");
+          }
+      function openDailogBox(){
+        let dailogBox= document.getElementById('dailogBox');
+        let main= document.getElementById("main");
+        main.classList.remove("open"); 
+        dailogBox.classList.add("open");
+      }   
+
   });
 
 </script>
