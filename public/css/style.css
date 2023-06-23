@@ -5,6 +5,21 @@
   background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
 }
 
+/* banner above the website */
+.banner {
+  background-color: #f57c2b;
+  padding: 10px;
+  text-align: center;
+}
+
+.banner-text {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 0.2px 0.2px #000;
+  font-family: Arial, sans-serif;
+}
+
 /* line 6, E:/172 Etrain Education/172_Etrain_Education_html/sass/_extends.scss */
 .member_counter {
   background-image: -moz-linear-gradient(0deg, #ee390f 0%, #f9b700 100%);
