@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name = "description" content="Unlock the power of coding with National Coding club. 
+    Explore a wide range of programming languages, frameworks, and tutorials. 
+    From beginners to experts, join our vibrant community, collaborate on projects,
+     and stay up to date with the latest industry trends. Start your coding journey today!
+     National Coding Club is your one stop solution for software engineering!">
+     <meta name="keywords" content="coding club, national coding club, 
+     competitive programming, coding challenges, algorithmic problem-solving,
+      data structures, algorithms, Android development, web development, HTML, CSS, JavaScript,
+       Python, Java, C++, React, Angular, database management, software engineering,
+        coding tutorials, programming community, code collaboration.">
+    <title>National Coding Club</title>
+    <link rel="icon" href="img/favicoon.png">
+    <link rel="stylesheet" href="css/form1_style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <!-- Just an image -->
+<!-- <nav class="navbar navbar-dark bg-light"> -->
+  <!-- <a class="navbar-brand" href="#"> -->
+    <a href="https://www.nationalcodingclub.com/" target="_blank">
+      <img src="img/logo.png" width="250" height="70" style="padding-bottom: 19px" alt="">
+    </a>
+    <!-- </a> -->
+  <!-- </nav> -->
+    <div class="title">Register for FREE 1:1 call with the coders at MAANG !</div>
+    <div class="content" style="margin-top: 8px;">Get all your doubts answered in this interactive session by the industry experts.</div>
+    <div class="content">
+      <form id ="kbcForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" name = "fullName" required>
+          </div>
+          <div class="input-box">
+            <span class="details">College</span>
+            <input type="text" placeholder="Enter your college name" name = "collegeName" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" name = "email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your 10 digit number" name = "phoneNumber" pattern="[2-35-9]{1}[0-9]{9}" required>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Stream and Year of passout</span>
+            <input type="text" placeholder="Enter your educational details" name = "streamAndPassOutYear" required>
+          </div>
+          <div class="input-box">
+            <span class="details">LinkedIn profile</span>
+            <input type="url" placeholder="Enter your linkedIn profile url" name = "linkedinURL" required>
+          </div> -->
+        </div>
+        <!-- <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div> -->
+        <div class="button">
+          <input type="submit" id = "kbcSubmit" value="Register !!">
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script type= "text/JavaScript">
+    //import {writeData} from "./fireStore.js";
+
+    /* function getFormData(form) {
+           writeData(form);
+     }
+
+     document.getElementById("kbcForm").addEventListener("submit", function (e) {
+         e.preventDefault();
+         getFormData(e.target);
+     });*/
+    const form = document.getElementById('kbcForm');
+    const kbcSubmit = document.getElementById('kbcSubmit');
+    kbcSubmit.disabled = false
+    form.addEventListener("submit", function(e) {
+        
+       e.preventDefault();
+       const data = new FormData(form);
+       const action = e.target.action;
+       fetch("https://script.google.com/macros/s/AKfycbxxbFfYztDeLWXxvFSGXjMISJnZT3xv-kcG4blVfS6tz3hXF1Esjs1nAiPm3St7WGQqog/exec", {
+          method: 'POST',
+          body: data,
+       })
+      .then(() => {
+          console.log("form submit");
+          kbcSubmit.disabled = true;
+          kbcSubmit.style.background = 'grey'
+          kbcSubmit.style.cursor = 'default'
+          alert("Congratulations! You have successfully registered for the WEBINAR !");
+      })
+  });
+
+</script>
+</body>
+</html>
